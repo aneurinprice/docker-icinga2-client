@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Nasty Hack
+setfacl --recursive --modify d:u:icinga:rwx,u:icinga2-user:rwx /etc/icinga2/
+sudo /usr/lib/icinga2/prepare-dirs
