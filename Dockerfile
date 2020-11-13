@@ -23,6 +23,8 @@ RUN apk add --no-cache --repository "http://dl-cdn.alpinelinux.org/alpine/edge/m
   # Configure SUDO
   echo "icinga2-user ALL=(ALL) NOPASSWD: /usr/lib/icinga2/prepare-dirs, /usr/sbin/icinga2 *" > /etc/sudoers.d/icinga2-user; \
   # Empty /etc/icinga2
+  mkdir /default-conf
+  cp -r /etc/icinga2/* /default-conf
   rm -rf /etc/icinga2/*; \
   # Change ownership of /etc/icinga2 (This is due to setfacl behavior between dockerfile and running. Will look into this later)
   chown icinga2-user /etc/icinga2

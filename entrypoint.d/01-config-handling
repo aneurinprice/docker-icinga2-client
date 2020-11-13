@@ -1,5 +1,10 @@
 #!/bin/bash
 
 # Nasty Hack
+if [[ -f "/etc/icinga2/icinga2.conf" ]]; then
+	echo "Nothing to do, icinga2.conf located"
+    else
+	cp -r /default-conf/* /etc/icinga2/
+fi
 sudo chown icinga2:icinga2 /etc/icinga2
 sudo /usr/lib/icinga2/prepare-dirs
