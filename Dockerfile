@@ -25,6 +25,7 @@ RUN apk add --no-cache --repository "http://dl-cdn.alpinelinux.org/alpine/edge/m
   # Empty /etc/icinga2
   mkdir /default-conf\ 
   cp -r /etc/icinga2/* /default-conf\ 
+  chmod 775 /default-conf -R\
   rm -rf /etc/icinga2/*; \
   # Change ownership of /etc/icinga2 (This is due to setfacl behavior between dockerfile and running. Will look into this later)
   chown icinga2-user /etc/icinga2
